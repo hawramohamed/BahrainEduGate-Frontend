@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -10,10 +11,7 @@ const CourseDetails = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await fetch(`http://localhost:3000/courses/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-          },
+          headers: {"Content-Type": "application/json","Authorization": `Bearer ${token}`,},
         });
 
         if (!res.ok) throw new Error("Failed to load course details");
@@ -45,6 +43,8 @@ const CourseDetails = () => {
           ))}
         </ul>
       )}
+    <Link to={`/courses/${course._id}/edit`}>Edit {course.title}</Link>
+
     </main>
   );
 };

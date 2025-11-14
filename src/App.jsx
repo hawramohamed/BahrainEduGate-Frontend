@@ -10,7 +10,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Course from './components/Course/Course';
 import { useContext } from 'react';
 import { UserContext } from './contexts/UserContext';
-import CourseDetails from './components/CourseDetails/CourseDetails';
+import CourseDetails from './components/Course/CourseDetails/CourseDetails';
+import CourseEdit from './components/Course/CourseEdit/CourseEdit';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -36,6 +37,7 @@ const App = () => {
         <Route path='/sign-in' element={<SignInForm />} />
         <Route path='/new' element={<Course />} />
         <Route path='/courses/:id' element={<CourseDetails />} />
+        <Route path='/courses/:courseId/edit' element={<CourseEdit />}/>
       </Routes>
     </>
   );
