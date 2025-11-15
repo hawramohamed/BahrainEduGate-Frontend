@@ -12,6 +12,10 @@ import { useContext } from 'react';
 import { UserContext } from './contexts/UserContext';
 import CourseDetails from './components/Course/CourseDetails/CourseDetails';
 import CourseEdit from './components/Course/CourseEdit/CourseEdit';
+import AssignmentList from './components/AssignmentList/AssignmentList';
+import AssignmentForm from './components/AssignmentForm/AssignmentForm';
+import AssignmentDetails from './components/AssignmentDetails/AssignmentDetails';
+import AssignmentEdit from './components/AssignmentForm/AssignmentEdit';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -28,6 +32,10 @@ const App = () => {
             <Route path='/courses/new' element={<Course />} />
             <Route path='/courses/:id' element={<CourseDetails />} />
             <Route path='/courses/:courseId/edit' element={<CourseEdit />}/>
+            <Route path='/assignments' element={<AssignmentList/>}/>
+            <Route path='/assignments/new' element={<AssignmentForm />} />
+            <Route path='/assignments/:id' element={<AssignmentDetails />} />
+            <Route path='/assignments/:id/edit' element={<AssignmentEdit />} />
           </>
             :
             <Route path='/' element={<Landing/>}/>
