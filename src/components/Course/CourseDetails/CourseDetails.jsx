@@ -27,11 +27,10 @@ const CourseDetails = () => {
 
   const handleDelete = async (event) => {
     try{
-      console.log("HAHAHAH")
       event.preventDefault();
       await courseService.deleteCourse(id);
       navigate('/');
-
+      
     } catch (err){
       console.error(err);
       setError('Failed to delete course')

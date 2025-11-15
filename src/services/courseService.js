@@ -52,17 +52,17 @@ export const courseService = {
     },
 
     async deleteCourse(id){
-        const res = await fetch (`${import.meta.env.VITE_BACK_END_SERVER_URL}/${id}`, {
+        const res = await fetch (`${BASE_URL}/${id}`, {
             method: 'DELETE',
             headers
         });
         const data = await res.json();        
 
-        if(data.err){
+        if(!res.err){
             throw new Error('Failed');
         };
 
         return data;
-
+        
     },
 };
