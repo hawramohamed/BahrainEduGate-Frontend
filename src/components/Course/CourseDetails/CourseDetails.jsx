@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const CourseDetails = () => {
   const { id } = useParams();
