@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { courseService } from "../../../services/courseService";
 import { UserContext } from "../../../contexts/UserContext";
+import './CourseDetails.css';
 
 const CourseDetails = () => {
   const { id } = useParams();
