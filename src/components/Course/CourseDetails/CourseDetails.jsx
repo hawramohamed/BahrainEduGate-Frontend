@@ -46,13 +46,13 @@ const CourseDetails = () => {
 
       {user.role === 'school' && (
         <>
-          <Link to={`/courses/${course._id}/edit`}>Edit {course.title}</Link>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={`/courses/${course._id}/assignments/new`}>Create Assignment</Link>
+          <Link to={`/courses/${course._id}/edit`} className="btn">Edit {course.title}</Link>
+          <button onClick={handleDelete} className="btn">Delete</button>
+          <Link to={`/courses/${course._id}/assignments/new`} className="btn">Create Assignment</Link>
         </>
       )}
 
-      <Link to={`/courses/${course._id}/assignments`}>Course Assignments</Link>
+      <Link to={`/courses/${course._id}/assignments`} className="btn">Course Assignments</Link>
     </main>
   );
 };

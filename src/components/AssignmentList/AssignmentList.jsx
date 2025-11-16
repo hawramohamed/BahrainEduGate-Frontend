@@ -22,7 +22,7 @@ const AssignmentList = () => {
         <ul>
           {filteredAssignments.map((assignment) => (
             <li key={assignment._id}>
-              <Link to={`/assignments/${assignment._id}`}>
+              <Link to={`/assignments/${assignment._id}`} className="btn">
                 {assignment.title}
               </Link>
             </li>

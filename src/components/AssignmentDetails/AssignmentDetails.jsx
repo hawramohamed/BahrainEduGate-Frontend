@@ -55,7 +55,7 @@ const AssignmentDetails = ({ deleteAssignment }) => {
         </button>
       </div>
 
-      <Link to='/assignments' style={{ display: 'block', marginTop: '1rem' }}>
+      <Link to='/assignments' className="btn">
         Back to assignments
       </Link>
     </div>

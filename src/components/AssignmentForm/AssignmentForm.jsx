@@ -52,7 +52,7 @@ const AssignmentForm = () => {
           value={formData.content}
           onChange={handleChange}
         />
-        <button type="submit">Add Assignment</button>
+        <button type="submit" className="btn">Add Assignment</button>
       </form>
     </main>
   );

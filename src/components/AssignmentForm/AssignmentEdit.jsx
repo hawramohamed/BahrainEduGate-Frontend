@@ -54,7 +54,7 @@ const AssignmentEdit = ({ updateAssignment }) => {
           value={formData.content}
           onChange={handleChange}
         />
-        <button type="submit">Update Assignment</button>
+        <button type="submit" className="btn">Update Assignment</button>
       </form>
     </main>
   );

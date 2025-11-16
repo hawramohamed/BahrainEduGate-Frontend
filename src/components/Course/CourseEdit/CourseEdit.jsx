@@ -145,7 +145,7 @@ function CourseEdit() {
                     />
                 </div>
                 
-                <button type="submit" disabled={isSubmitting || loading}>
+                <button type="submit" className="btn" disabled={isSubmitting || loading}>
                     {isSubmitting ? 'Saving...' : 'Save Changes'}
                 </button>
             </form>
