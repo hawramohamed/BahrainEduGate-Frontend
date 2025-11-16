@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import './CourseEdit.css';
 
 // IMPORTANT: Set your backend base URL and port
 const API_BASE_URL = 'http://localhost:3000/courses';

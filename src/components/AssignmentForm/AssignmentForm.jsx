@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router';
 
 import { assignmentService } from '../../services/assignmentService';
 import { AssignmentsContext } from '../../contexts/AssignmentContext';
+import './AssignmentForm.css';
 
 const initialState = { title: '', content: '' };
 
@@ -15,7 +16,7 @@ const AssignmentForm = () => {
   if (!courseId) {
     return <p>Error: No course selected. Please navigate from a course page.</p>;
   }
-  
+
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   };

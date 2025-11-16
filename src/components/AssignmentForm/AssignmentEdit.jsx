@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { assignmentService } from '../../services/assignmentService';
+import './AssignmentEdit.css';
 
 const AssignmentEdit = ({ updateAssignment }) => {
   const { id } = useParams();

@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import{ useContext } from 'react';
 
 import { AssignmentsContext } from '../../contexts/AssignmentContext';
-
+import './AssignmentList.css';
 
 const AssignmentList = () => {
   const {assignments} = useContext(AssignmentsContext);
