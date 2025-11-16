@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
 import { assignmentService } from '../../services/assignmentService';
 import { AssignmentsContext } from '../../contexts/AssignmentContext';
@@ -7,10 +7,15 @@ import { AssignmentsContext } from '../../contexts/AssignmentContext';
 const initialState = { title: '', content: '' };
 
 const AssignmentForm = () => {
+  const {courseId} = useParams();
   const [formData, setFormData] = useState(initialState);
   const navigate = useNavigate();
   const { addAssignment } = useContext(AssignmentsContext);
 
+  if (!courseId) {
+    return <p>Error: No course selected. Please navigate from a course page.</p>;
+  }
+  
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   };
@@ -18,10 +23,10 @@ const AssignmentForm = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const newAssignment = await assignmentService.createAssignment(formData);
+      const newAssignment = await assignmentService.createAssignment({...formData, course: courseId,});
       addAssignment(newAssignment);
       setFormData(initialState);
-      navigate('/assignments');
+      navigate(`/courses/${courseId}`);
     } catch (err) {
       console.error(err);
     }

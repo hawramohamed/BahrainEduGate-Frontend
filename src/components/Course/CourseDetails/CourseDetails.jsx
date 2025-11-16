@@ -57,7 +57,8 @@ const CourseDetails = () => {
       )}
     <Link to={`/courses/${course._id}/edit`}>Edit {course.title}</Link>
     <button onClick={handleDelete}>Delete</button>
-    <Link to={`/assignments`}>Course Assignments</Link>
+    <Link to={`/courses/${course._id}/assignments`}>Course Assignments</Link>
+    <Link to={`/courses/${course._id}/assignments/new`}>Create Assignment</Link>
 
     </main>
   );

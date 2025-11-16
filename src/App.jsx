@@ -32,6 +32,8 @@ const App = () => {
             <Route path='/courses/new' element={<Course />} />
             <Route path='/courses/:id' element={<CourseDetails />} />
             <Route path='/courses/:courseId/edit' element={<CourseEdit />}/>
+            <Route path='/courses/:courseId/assignments' element={<AssignmentList />} />
+            <Route path='/courses/:courseId/assignments/new' element={<AssignmentForm />} /> 
             <Route path='/assignments' element={<AssignmentList/>}/>
             <Route path='/assignments/new' element={<AssignmentForm />} />
             <Route path='/assignments/:id' element={<AssignmentDetails />} />
