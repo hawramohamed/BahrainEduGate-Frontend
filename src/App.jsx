@@ -31,6 +31,7 @@ const App = () => {
           user ?
           <>
             <Route path='/' element={<Dashboard/>}/>
+            <Route path='/sign-up' element={<SignUpForm />} />
             <Route path='/courses' element={<Dashboard/>}/>
             <Route path='/courses/new' element={<Course />} />
             <Route path='/courses/:id' element={<CourseDetails />} />
@@ -45,7 +46,7 @@ const App = () => {
             :
             <Route path='/' element={<Landing/>}/>
         }
-        <Route path='/sign-up' element={<SignUpForm />} />
+        
         <Route path='/sign-in' element={<SignInForm />} />
         
       </Routes>
