@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router';
 
 // Base URL for course operations
 const COURSE_API_BASE_URL = 'http://localhost:3000/courses'; 
