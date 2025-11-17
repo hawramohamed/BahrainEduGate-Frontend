@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router';
 
+import { assignmentService } from '../../services/assignmentService';
 import{UserContext} from '../../contexts/UserContext';
 import './AssignmentDetails.css';
 
@@ -19,9 +20,7 @@ const AssignmentDetails = ({ deleteAssignment }) => {
     
     const fetchAssignment = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/assignments/${id}`);
-        if (!res.ok) throw new Error('Failed to fetch assignment');
-        const data = await res.json();
+        const data = await assignmentService.getAssignment(id)
         setAssignment(data);
       } catch (err) {
         console.error(err);
@@ -37,20 +36,13 @@ const AssignmentDetails = ({ deleteAssignment }) => {
   const handleDelete = async () => {
    
     try {
-      const res = await fetch(`http://localhost:3000/assignments/${id}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`, // ✅ include token
-        },
-      });
+      res = await assignmentService.deleteAssignment(id)
 
-      if (!res.ok) {
-        const errorBody = await res.json().catch(() => ({}));
-        throw new Error(errorBody.err || 'Failed to delete assignment');
+      if(res){
+        navigate('/assignments');
+      }else{
+        throw new Error('Failed to delete')
       }
-
-      deleteAssignment && deleteAssignment(id);
-      navigate('/assignments');
     } catch (err) {
       console.error(err);
       alert(err.message || 'Failed to delete assignment');

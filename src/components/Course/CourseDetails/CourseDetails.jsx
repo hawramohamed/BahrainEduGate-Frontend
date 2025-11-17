@@ -14,6 +14,7 @@ const CourseDetails = () => {
     const fetchCourse = async () => {
       try {
         const data = await courseService.getCourse(id);
+        
         setCourse(data);
       } catch (err) {
         console.error(err);

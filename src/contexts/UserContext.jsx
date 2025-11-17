@@ -24,7 +24,8 @@ function UserProvider({ children }) {
 
   // Sync user state when token is added/changed/removed
   useEffect(() => {
-    const updateUser = () => setUser(getUserFromToken());
+    
+    const updateUser = () => getUserFromToken();
     window.addEventListener("storage", updateUser);
     return () => window.removeEventListener("storage", updateUser);
   }, []);

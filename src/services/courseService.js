@@ -4,6 +4,7 @@ const  headers = {'Content-Type': 'application/json', Authorization: `Bearer ${l
 export const courseService = {
     //get course id
     async getCourse(id){
+        headers.Authorization = `Bearer ${localStorage.getItem('token')}`
         const res = await fetch (`${BASE_URL}/${id}`, {
             headers
         });
@@ -19,6 +20,7 @@ export const courseService = {
 
     //create new course
     async createCourse(formData){
+        headers.Authorization = `Bearer ${localStorage.getItem('token')}`
         const res = await fetch(`${BASE_URL}/new`, {
             method: 'POST',
             headers,
@@ -36,6 +38,7 @@ export const courseService = {
 
     //update course
     async updateCourse(id, formData){
+        headers.Authorization = `Bearer ${localStorage.getItem('token')}`
         const res = await fetch (`${BASE_URL}/${id}`, {
             method: 'PUT',
             headers,
@@ -52,6 +55,7 @@ export const courseService = {
     },
 
     async deleteCourse(id){
+        headers.Authorization = `Bearer ${localStorage.getItem('token')}`
         const res = await fetch (`${BASE_URL}/${id}`, {
             method: 'DELETE',
             headers
@@ -67,6 +71,7 @@ export const courseService = {
     },
 
     async enrollInCourse(courseId) {
+        headers.Authorization = `Bearer ${localStorage.getItem('token')}`
         const res = await fetch(`${BASE_URL}/${courseId}/enroll`, {
             method: 'POST',
             headers,

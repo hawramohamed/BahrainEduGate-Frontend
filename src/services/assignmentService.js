@@ -6,18 +6,21 @@ const headers = {
 
 export const assignmentService = {
   async getAssignment(id) {
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     const res = await fetch(`${BASE_URL}/${id}`, { headers });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     return res.json();
   },
 
   async getAllAssignments() {
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     const res = await fetch(BASE_URL, { headers });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     return res.json();
   },
 
   async createAssignment(formData) {
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     const res = await fetch(`${BASE_URL}/new`, {  // matches your controller
       method: 'POST',
       headers,
@@ -28,6 +31,7 @@ export const assignmentService = {
   },
 
   async updateAssignment(id, formData) {
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     const res = await fetch(`${BASE_URL}/${id}`, {
       method: 'PUT',
       headers,
@@ -38,11 +42,12 @@ export const assignmentService = {
   },
 
   async deleteAssignment(id) {
+    headers.Authorization = `Bearer ${localStorage.getItem('token')}`
     const res = await fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
       headers,
     });
     if (!res.ok && res.status !== 204) throw new Error(`HTTP error! status: ${res.status}`);
-    return res.status === 204 ? {} : res.json();
+    return res.status === 204 ? true :  res.json();
   },
 };
